@@ -1,0 +1,398 @@
+// Variables
+$green: #002623;
+$dark-green: #000101;
+$text-color-1: #013f3a;
+$text-color-2: #12baa3;
+$text-color-3: #64748b;
+$button-color-1: #17c0ab;
+$button-color-2: #003b35;
+$banner-text-1: #17c0ab;
+$banner-text-2: #ffff;
+$section-bg-color: #f6fff5;
+$section-bg-color-2: #ecf9eb;
+$card-bg-colors: (#ffffff, #003b35, #12baa3, #5fd58c);
+$footer-color: #003b35;
+
+// Mixin for gradient background
+@mixin gradient-background($color1, $color2) {
+  background: linear-gradient(to bottom, $color1, $color2);
+}
+
+// Styles
+body {
+  display: block;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.button {
+  &.button-default {
+    background: transparent;
+    color: #fff;
+    padding: 10px 20px;
+    border: 1px solid $banner-text-1;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: $button-color-2;
+    }
+    &:active {
+      background-color: $button-color-1;
+    }
+  }
+
+  &.button-1 {
+    background-color: $button-color-1;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: darken($button-color-1, 10%);
+    }
+  }
+
+  &.button-2 {
+    background-color: $button-color-2;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: darken($button-color-2, 10%);
+    }
+  }
+
+  &.active {
+    background-color: $button-color-1;
+  }
+
+  // Add more button styles as needed
+}
+
+.top-nav {
+  background-color: $green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 2%;
+  .flexBox {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .logo {
+    img {
+      max-width: 100px;
+      height: auto;
+    }
+  }
+  nav {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        display: inline-block;
+        margin-right: 20px;
+        a {
+          text-decoration: none;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .extra-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        display: inline-block;
+        margin-right: 20px;
+        a {
+          text-decoration: none;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.banner {
+  @include gradient-background($green, $dark-green);
+  color: #fff;
+  .banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 3%;
+    .text {
+      flex: 1;
+      h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+        color: $banner-text-1;
+        span {
+          color: $banner-text-2;
+          display: block;
+        }
+      }
+      p {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+      }
+    }
+    .image {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+.who-is-it-for,
+.why-choose-us {
+  background-color: $section-bg-color; // Using variable for section background color
+  padding: 50px 0;
+  text-align: center;
+
+  .section-header {
+    margin-bottom: 40px;
+
+    p {
+      font-size: 1em;
+      color: #666;
+    }
+
+    img {
+      margin: 10px auto;
+      display: block;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      margin-top: 10px;
+    }
+  }
+
+  .card-container {
+    display: flex;
+    justify-content: space-evenly;
+
+    .card {
+      width: 284px; // Adjust card width and spacing as needed
+      background-color: nth($card-bg-colors, 1);
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .card-number {
+        color: #ffff;
+        display: inline-block;
+        margin: 2em 0 2.5em;
+        font-size: 0.8em;
+      }
+
+      p {
+        margin-top: 10px;
+        color: #ffff;
+        font-weight: 500;
+        line-height: 1.8em;
+
+        span {
+          display: block;
+        }
+      }
+    }
+
+    .card:nth-child(1) {
+      .card-number {
+        color: #000101;
+      }
+
+      p {
+        color: #000101;
+      }
+    }
+
+    .card:nth-child(2) {
+      background-color: nth($card-bg-colors, 2);
+    }
+
+    .card:nth-child(3) {
+      background-color: nth($card-bg-colors, 3);
+    }
+    .card:nth-child(4) {
+      background-color: nth($card-bg-colors, 4);
+    }
+  }
+}
+
+.why-choose-us {
+  .card:nth-child(1) {
+    background-color: nth($card-bg-colors, 4);
+  }
+
+  .card:nth-child(2) {
+    background-color: nth($card-bg-colors, 3) !important;
+  }
+  .card:nth-child(3) {
+    background-color: nth($card-bg-colors, 2) !important;
+  }
+  .card:nth-child(4) {
+    background-color: nth($card-bg-colors, 3) !important;
+  }
+}
+
+.how-it-work {
+  @include gradient-background($green, $dark-green);
+  color: #fff;
+  padding: 50px 3%;
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      font-size: 2.3em;
+    }
+
+    .tab-nav .button {
+      margin-left: 1em;
+    }
+  }
+
+  p {
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 25px;
+  }
+
+  .card-container {
+    display: flex;
+    justify-content: space-between;
+
+    .card {
+      width: 229px;
+      height: 280px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+  }
+}
+
+.flex-wrap-image {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .column {
+    flex: 1;
+    min-width: 0;
+    color: $text-color-1;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    .text-content {
+      padding-left: 4%;
+
+      h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+        margin-top: 0;
+        color: $text-color-2;
+      }
+      h6 {
+        margin: 0;
+        font-size: 0.9em;
+      }
+      p {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.build-project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $section-bg-color-2;
+  padding: 4em 15% 2em;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .text-content {
+    margin-top: 2em;
+    text-align: center;
+
+    h4 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: $text-color-1;
+
+      span {
+        color: $text-color-2;
+      }
+    }
+    p {
+      font-size: 0.9em;
+      line-height: 1.8em;
+      color: $text-color-3;
+      margin-top: 0;
+    }
+
+    .button {
+      margin: 0 10px;
+    }
+  }
+}
+
+footer {
+  background-color: $footer-color;
+  padding: 4em 2em;
+  min-height: 300px;
+}
