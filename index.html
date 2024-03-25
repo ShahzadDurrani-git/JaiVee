@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landing Page</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap&family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header class="top-nav">
@@ -14,21 +20,24 @@
         </div>
         <nav>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Listing</a></li>
-            <li><a href="#">Listing</a></li>
-            <li><a href="#">Listing</a></li>
+            <li><a href="#">JV Land</a></li>
+            <li><a href="#">JV Develop</a></li>
+            <li><a href="#">JV Invest</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">JV Learn</a></li>
           </ul>
         </nav>
       </div>
       <div class="extra-links">
         <nav>
           <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
+            <li><a href="#">My JVs</a></li>
+            <li>
+              <a href="#"><img src="images/star.png" alt="star" />JV Neo</a>
+            </li>
           </ul>
         </nav>
-        <button class="button button-1">Contact</button>
+        <button class="button button-1">Sign In</button>
       </div>
     </header>
 
@@ -49,7 +58,7 @@
     </section>
     <section class="who-is-it-for">
       <div class="section-header">
-        <img src="section-ico.png" alt="Icon" />
+        <img src="images/section-icon.png" alt="Icon" />
         <p>Who is it for?</p>
         <h2>Connecting Landowners, Builders and Investors</h2>
       </div>
@@ -80,20 +89,46 @@
       <div class="section-header">
         <h2>How it works</h2>
         <div class="tab-nav">
-          <button class="button button-default active">Land Owner</button>
-          <button class="button button-default">Builder</button>
-          <button class="button button-default">Invester</button>
+          <button class="button button-default active" onclick="showContent(0)">
+            Land Owner
+          </button>
+          <button class="button button-default" onclick="showContent(1)">
+            Builder
+          </button>
+          <button class="button button-default" onclick="showContent(2)">
+            Invester
+          </button>
         </div>
       </div>
-      <p>
-        Find partners and form a JV and build your dream project. It is that
-        easy.
-      </p>
-      <div class="card-container">
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
+      <div class="content active" id="content0">
+        <p>
+          Find partners and form a JV and build your dream project. It is that
+          easy.
+        </p>
+        <div class="card-container">
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+        </div>
+      </div>
+      <div class="content" id="content1" style="display: none">
+        <p>Builder</p>
+        <div class="card-container">
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+        </div>
+      </div>
+      <div class="content" id="content2" style="display: none">
+        <p>Investor</p>
+        <div class="card-container">
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+        </div>
       </div>
     </section>
     <section class="why-choose-us">
@@ -195,4 +230,22 @@
       <img src="images/logo.png" alt="logo" />
     </footer>
   </body>
+  <script>
+    function showContent(index) {
+      // Hide all content and remove active class from buttons
+      const contents = document.querySelectorAll(".content");
+      contents.forEach((content) => (content.style.display = "none"));
+      contents.forEach((content) => content.classList.remove("active"));
+
+      const buttons = document.querySelectorAll(".tab-nav button");
+      buttons.forEach((button) => button.classList.remove("active"));
+
+      // Show selected content and add active class to the clicked button
+      const content = document.getElementById(`content${index}`);
+      content.style.display = "block";
+      content.classList.add("active");
+
+      buttons[index].classList.add("active");
+    }
+  </script>
 </html>
