@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   display: block;
   margin: 0;
@@ -141,6 +142,9 @@ body {
   font-size: 1.2em;
   margin-bottom: 20px;
 }
+.banner .banner-content .text h3 {
+  font-size: 2.5em;
+}
 .banner .banner-content .image {
   flex: 1;
   display: flex;
@@ -151,10 +155,27 @@ body {
   height: auto;
 }
 
+.banner-listing .banner-content {
+  text-align: center;
+  padding: 11em 3em 9em;
+}
+.banner-listing .banner-content .text h3 {
+  margin-bottom: 0;
+}
+.banner-listing .banner-content .text p {
+  margin-bottom: 4.5em;
+}
+.banner-listing .banner-content .text span {
+  display: block;
+}
+.banner-listing .banner-content .text .button {
+  border-radius: 3px;
+}
+
 .who-is-it-for,
 .why-choose-us {
   background-color: #f6fff5;
-  padding: 50px 0;
+  padding: 50px 3%;
   text-align: center;
 }
 .who-is-it-for .section-header,
@@ -162,8 +183,8 @@ body {
   margin-bottom: 40px;
   overflow: hidden;
 }
-.who-is-it-for .section-header p,
-.why-choose-us .section-header p {
+.who-is-it-for .section-header span,
+.why-choose-us .section-header span {
   font-size: 1em;
   color: #666;
 }
@@ -177,6 +198,33 @@ body {
   font-size: 1.5em;
   margin-top: 10px;
 }
+.who-is-it-for .section-header p,
+.why-choose-us .section-header p {
+  font-family: "Lato", sans-serif;
+  color: #050d42;
+  line-height: 1.5em;
+  margin-bottom: 0;
+}
+.who-is-it-for .section-header ul,
+.why-choose-us .section-header ul {
+  text-align: left;
+  list-style: none;
+}
+.who-is-it-for .section-header ul li,
+.why-choose-us .section-header ul li {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  color: #050d42;
+  line-height: 2em;
+}
+.who-is-it-for .section-header ul li::before,
+.why-choose-us .section-header ul li::before {
+  content: "•";
+  color: #050d42;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
 .who-is-it-for .card-container,
 .why-choose-us .card-container {
   display: flex;
@@ -187,7 +235,7 @@ body {
 @media (min-width: 768px) {
   .who-is-it-for .card-container,
   .why-choose-us .card-container {
-    gap: 1.5rem;
+    gap: 1rem;
   }
 }
 @media (min-width: 1280px) {
@@ -200,7 +248,7 @@ body {
 .why-choose-us .card-container .card {
   width: 284px;
   background-color: #ffffff;
-  padding: 20px;
+  padding: 50px 20px 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
@@ -254,6 +302,40 @@ body {
 .who-is-it-for .card-container .card:nth-child(4),
 .why-choose-us .card-container .card:nth-child(4) {
   background-color: #5fd58c;
+}
+
+.how-it-work-listing {
+  padding: 50px 11%;
+}
+.how-it-work-listing .flex-center {
+  display: flex;
+  justify-content: center;
+}
+.how-it-work-listing .listing-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.how-it-work-listing .listing-card {
+  width: calc(44.8% - 10px);
+  margin-bottom: 20px;
+  font-size: 18px;
+  padding: 1em 1.5em;
+  background-color: #f6fff5 !important;
+}
+.how-it-work-listing .listing-card img {
+  width: auto;
+  height: 4.2em;
+}
+.how-it-work-listing .listing-card h3 {
+  margin-top: 10px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.how-it-work-listing .listing-card p {
+  margin-top: 5px;
+  color: #666;
+  line-height: 1.4em;
 }
 
 .why-choose-us .card:nth-child(1) {
@@ -408,6 +490,109 @@ body {
 .build-project .text-content .button {
   margin: 0 10px;
   font-family: "Manrope", sans-serif;
+}
+
+.taxonomy .taxonomy-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.taxonomy .taxonomy-container .taxonomy-card {
+  border: 1px solid #d9d9d9;
+  border-radius: 16px;
+  width: 22%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.taxonomy .taxonomy-container .taxonomy-card a {
+  text-decoration: none;
+  color: white;
+  background-color: #12baa3;
+  display: block;
+  bottom: 0;
+  line-height: 2.5em;
+  text-align: left;
+  padding: 0 1.5em;
+}
+.taxonomy .taxonomy-container .taxonomy-card .image {
+  height: 150px;
+  display: block;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+}
+.taxonomy .taxonomy-container .taxonomy-card .text {
+  text-align: left;
+  padding: 11px 1.5em 15px;
+  flex-grow: 1;
+  font-size: 0.9em;
+}
+.taxonomy .taxonomy-container .taxonomy-card .text span {
+  font-weight: 300;
+  display: flex;
+  gap: 0.3em;
+}
+.taxonomy .taxonomy-container .taxonomy-card .text span img {
+  display: inline-block;
+}
+.taxonomy .taxonomy-container .taxonomy-card .text h3 {
+  font-weight: bold;
+  margin-bottom: 1.87em;
+  margin-top: 3px;
+}
+.taxonomy .taxonomy-container .taxonomy-card .text ul {
+  list-style: none;
+  display: flex;
+  gap: 0.5em;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9em;
+}
+.taxonomy .taxonomy-container .taxonomy-card .text ul li {
+  position: relative;
+  padding-left: 13px;
+  font-weight: 300;
+}
+.taxonomy .taxonomy-container .taxonomy-card .text ul li::before {
+  content: url("images/airplane-1.png");
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-right: 10px;
+  position: absolute;
+  left: 0;
+  top: 32%;
+  transform: translateY(-50%);
+}
+.taxonomy .navigations {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.transform-land {
+  padding: 50px 3% 190px;
+  background-color: #f6fff5;
+}
+.transform-land .text {
+  flex: 1;
+  font-family: "Inter", sans-serif;
+}
+.transform-land .text p {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+.transform-land .text h3 {
+  font-size: 3.5em;
+  margin-bottom: 0;
+}
+.transform-land .text h3 span {
+  display: block;
+}
+.transform-land .text .button {
+  border-radius: 3px;
 }
 
 footer {
