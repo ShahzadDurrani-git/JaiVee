@@ -322,7 +322,12 @@ body {
 .how-it-work-listing .listing-card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+}
+@media (min-width: 1089px) {
+  .how-it-work-listing .listing-card-container {
+    justify-content: space-between;
+  }
 }
 .how-it-work-listing .listing-card {
   width: calc(44.8% - 10px);
@@ -526,13 +531,13 @@ body {
 .taxonomy .taxonomy-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  gap: 1rem;
   margin-bottom: 40px;
 }
 .taxonomy .taxonomy-container .taxonomy-card {
   border: 1px solid #d9d9d9;
   border-radius: 16px;
-  width: 22%;
   position: relative;
   overflow: hidden;
   display: flex;
