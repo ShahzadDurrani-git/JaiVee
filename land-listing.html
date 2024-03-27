@@ -721,8 +721,123 @@
       </section>
       <section class="neighbourhood listing-page">
         <h2>Neighbourhood</h2>
-        <div class="content"></div>
+        <div class="content">
+          <div class="col col-1">
+            <div class="direction">
+              <span><img src="images/pin.png" alt="pin" />Your location</span>
+              <form>
+                <input
+                  type="text"
+                  name="destination"
+                  placeholder="Type in place to get direction"
+                />
+                <button class="button button-default">Get Direction</button>
+              </form>
+            </div>
+            <div class="map">
+              <div class="mapouter">
+                <div class="gmap_canvas">
+                  <iframe
+                    class="gmap_iframe"
+                    width="100%"
+                    frameborder="0"
+                    scrolling="no"
+                    marginheight="0"
+                    marginwidth="0"
+                    src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=johar town&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                  ></iframe
+                  ><a href="https://strandsgame.net/">Strands</a>
+                </div>
+                <style>
+                  .mapouter {
+                    position: relative;
+                    text-align: right;
+                    width: 100%;
+                    height: 400px;
+                  }
+                  .gmap_canvas {
+                    overflow: hidden;
+                    background: none !important;
+                    width: 100%;
+                    height: 400px;
+                  }
+                  .gmap_iframe {
+                    height: 400px !important;
+                  }
+                </style>
+              </div>
+            </div>
+          </div>
+          <div class="col col-2">
+            <div class="header">
+              <div class="col">Transit</div>
+              <div class="col active">Essentials</div>
+              <div class="col">Utility</div>
+            </div>
+
+            <div class="tab-content">
+              <button class="accordion active">
+                <img src="images/car.png" alt="icon" />
+                Bus Stations
+              </button>
+              <div class="panel" style="display: block">
+                <p>NR Colony bus stop <span>0.6 km | 7 mins</span></p>
+                <p>NR Colony bus stop <span>0.6 km | 7 mins</span></p>
+                <p>NR Colony bus stop <span>0.6 km | 7 mins</span></p>
+                <p>NR Colony bus stop <span>0.6 km | 7 mins</span></p>
+                <p>NR Colony bus stop <span>0.6 km | 7 mins</span></p>
+              </div>
+
+              <button class="accordion">
+                <img src="images/train.png" alt="icon" />
+                Airports
+              </button>
+              <div class="panel">
+                <p>NR Colony bus stop <span>0.6 km | 7 mins</span></p>
+                <p>NR Colony bus stop <span>0.6 km | 7 mins</span></p>
+                <p>NR Colony bus stop <span>0.6 km | 7 mins</span></p>
+              </div>
+
+              <button class="accordion">
+                <img src="images/plane.png" alt="icon" />
+                Train Stations
+              </button>
+              <div class="panel">
+                <p>NR Colony bus stop <span>0.6 km | 7 mins</span></p>
+                <p>NR Colony bus stop <span>0.6 km | 7 mins</span></p>
+                <p>NR Colony bus stop <span>0.6 km | 7 mins</span></p>
+                <p>NR Colony bus stop <span>0.6 km | 7 mins</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </section>
   </body>
+  <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function () {
+        var panel = this.nextElementSibling;
+
+        // Close all panels
+        for (var j = 0; j < acc.length; j++) {
+          if (acc[j] !== this) {
+            acc[j].classList.remove("active");
+            acc[j].nextElementSibling.style.display = "none";
+          }
+        }
+
+        // Toggle active class and display state for the clicked accordion
+        this.classList.toggle("active");
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+  </script>
 </html>

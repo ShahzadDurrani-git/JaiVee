@@ -840,7 +840,7 @@ body {
 .land-listing-container .listing-page h2 {
   color: #003b35;
   font-weight: bold;
-  border-bottom: 1px solid #003b35;
+  border-bottom: 1px solid #17c0ab;
   display: inline-block;
   padding-bottom: 10px;
   margin-bottom: 0;
@@ -922,6 +922,98 @@ body {
 
 .neighbourhood {
   width: 94% !important;
+}
+.neighbourhood .content {
+  display: flex;
+  margin-top: 30px;
+}
+.neighbourhood .content .col .direction {
+  display: flex;
+  align-items: center;
+}
+.neighbourhood .content .col .direction span {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.neighbourhood .content .col .direction form {
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.neighbourhood .content .col .direction form input {
+  border: 1px solid #000;
+  border-radius: 2px;
+  padding: 10px 20px;
+  width: 55%;
+}
+.neighbourhood .content .col .direction form .button {
+  border-color: red;
+  color: red;
+  padding: 8.5px 20px;
+  border-radius: 2px;
+  width: 37%;
+}
+.neighbourhood .content .col .map {
+  height: 381px;
+  width: 100%;
+  margin-top: 10px;
+}
+.neighbourhood .content .col-1 {
+  width: 70%;
+}
+.neighbourhood .content .col-2 {
+  width: 30%;
+  background-color: #f8f8f8;
+  padding: 15px;
+}
+.neighbourhood .content .col-2 .header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #dcdcdc;
+}
+.neighbourhood .content .col-2 .header .col {
+  padding: 23px 36px 18px;
+  color: #003b35;
+  font-weight: bold;
+}
+.neighbourhood .content .col-2 .header .active {
+  color: #17c0ab;
+  border-bottom: 1px solid #17c0ab;
+  background: none;
+}
+.neighbourhood .content .col-2 .accordion {
+  background-color: white;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.neighbourhood .content .col-2 .active,
+.neighbourhood .content .col-2 .accordion:hover {
+  background-color: #fff;
+}
+.neighbourhood .content .col-2 .panel {
+  padding: 0 18px 14px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+.neighbourhood .content .col-2 .panel p {
+  margin: 0 0 10px 0;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
 }
 
 footer {
