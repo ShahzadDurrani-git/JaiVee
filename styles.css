@@ -758,17 +758,18 @@ body {
 }
 .land-listing-container .column:first-child {
   width: 37.09%;
-  margin-right: 27px;
+  margin-right: 1.991%;
 }
 .land-listing-container .column:nth-child(2) {
   width: 22.64%;
-  margin-right: 32px;
+  margin-right: 2.36%;
 }
 .land-listing-container .column:last-child {
   width: 36.16%;
 }
 .land-listing-container .row {
   margin-top: 20px;
+  height: 49%;
 }
 .land-listing-container .row:first-child {
   margin-top: 0;
@@ -784,9 +785,14 @@ body {
 }
 .land-listing-container .table {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   border-top: 1px solid #dcdcdc;
   border-left: 1px solid #dcdcdc;
+}
+@media (min-width: 1366px) {
+  .land-listing-container .table {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 .land-listing-container .cell {
   border-right: 1px solid #dcdcdc;
@@ -826,15 +832,19 @@ body {
     flex-direction: column;
   }
   .land-listing-container .column {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 20px; /* Adjust margin as needed */
+    width: 100% !important;
+    margin-right: 0 !important;
+    margin-bottom: 20px;
+  }
+  .land-listing-container .listing-page {
+    width: 93% !important;
+    margin-top: 20px !important;
   }
 }
 .land-listing-container .listing-page {
   width: 59.8%;
   margin-top: 20px;
-  padding: 38px 40px;
+  padding: 38px 2.9%;
   border: 1px solid #dcdcdc;
 }
 .land-listing-container .listing-page h2 {
@@ -855,6 +865,11 @@ body {
   flex-direction: row;
   justify-content: flex-start;
 }
+@media (max-width: 1068px) {
+  .land-listing-container .overview .content {
+    flex-direction: column;
+  }
+}
 .land-listing-container .overview .content .col .row {
   padding: 10px 24px;
   min-height: 44px;
@@ -865,6 +880,7 @@ body {
   font-size: 0.9em;
   gap: 1em;
   margin-top: 0;
+  height: auto;
 }
 .land-listing-container .overview .content .col .row .heading {
   font-weight: normal;
@@ -877,6 +893,12 @@ body {
 }
 .land-listing-container .overview .content .col .row .detail p {
   margin: 0;
+}
+@media (max-width: 1068px) {
+  .land-listing-container .overview .content .col {
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
 }
 .land-listing-container .overview .content .col-1 {
   width: 58%;
@@ -927,6 +949,11 @@ body {
   display: flex;
   margin-top: 30px;
 }
+@media (max-width: 1068px) {
+  .neighbourhood .content {
+    flex-direction: column;
+  }
+}
 .neighbourhood .content .col .direction {
   display: flex;
   align-items: center;
@@ -962,6 +989,11 @@ body {
   width: 100%;
   margin-top: 10px;
 }
+@media (max-width: 1068px) {
+  .neighbourhood .content .col {
+    width: 100% !important;
+  }
+}
 .neighbourhood .content .col-1 {
   width: 70%;
 }
@@ -969,14 +1001,15 @@ body {
   width: 30%;
   background-color: #f8f8f8;
   padding: 15px;
+  min-height: 418px;
 }
 .neighbourhood .content .col-2 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   border-bottom: 1px solid #dcdcdc;
 }
 .neighbourhood .content .col-2 .header .col {
-  padding: 23px 36px 18px;
+  padding: 23px 0 18px;
   color: #003b35;
   font-weight: bold;
 }
@@ -999,7 +1032,7 @@ body {
   margin-top: 10px;
   font-weight: bold;
 }
-.neighbourhood .content .col-2 .active,
+.neighbourhood .content .col-2 .active-panel,
 .neighbourhood .content .col-2 .accordion:hover {
   background-color: #fff;
 }
@@ -1014,6 +1047,9 @@ body {
   font-size: 15px;
   display: flex;
   justify-content: space-between;
+}
+.neighbourhood .content .tab-content {
+  display: none;
 }
 
 footer {
