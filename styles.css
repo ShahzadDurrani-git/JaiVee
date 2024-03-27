@@ -117,6 +117,112 @@ body {
   color: #fff;
 }
 
+.mobile-menu {
+  display: block;
+}
+@media (min-width: 768px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .content.mobile-menu nav {
+    display: block;
+  }
+  .top-nav {
+    position: relative;
+  }
+  #menuToggle {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+         user-select: none;
+  }
+  #menuToggle input {
+    display: flex;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+  }
+  #menuToggle span {
+    display: flex;
+    width: 29px;
+    height: 2px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #17c0ab;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 5px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  }
+  #menuToggle span:first-child {
+    transform-origin: 0% 0%;
+  }
+  #menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+  }
+  #menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-3px, -1px);
+    background: #17c0ab;
+  }
+  #menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  #menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+  #menuToggle input:checked ~ #menu {
+    transform: translate(0, 0); /* Slide in the menu from the right */
+  }
+  #menu {
+    position: fixed;
+    width: 150px;
+    padding: 125px 37px 0;
+    height: 100vh;
+    box-shadow: 0 0 10px #85888c;
+    margin: -38px 0px 0;
+    right: 0;
+    background-color: #f5f6fa;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    background: linear-gradient(to bottom, #002623, #000101);
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+  #menu li {
+    padding: 10px 0;
+    transition-delay: 2s;
+  }
+  #menu ul {
+    margin-top: 20px;
+  }
+  #menu ul img {
+    transform: scaleX(-1);
+    margin-left: -6px;
+  }
+  #menu ul .button {
+    margin-top: 10px;
+    padding: 6px 20px;
+  }
+  #menuToggle input:checked ~ ul {
+    transform: none;
+  }
+}
 .banner {
   background: linear-gradient(to bottom, #002623, #000101);
   color: #fff;
@@ -634,118 +740,192 @@ body {
 .land-listing-container {
   padding: 50px 3%;
 }
+.land-listing-container .listing-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.land-listing-container .column {
+  flex: 1;
+  overflow: hidden;
+}
+.land-listing-container .column img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
+}
+.land-listing-container .column:first-child {
+  width: 37.09%;
+  margin-right: 27px;
+}
+.land-listing-container .column:nth-child(2) {
+  width: 22.64%;
+  margin-right: 32px;
+}
+.land-listing-container .column:last-child {
+  width: 36.16%;
+}
+.land-listing-container .row {
+  margin-top: 20px;
+}
+.land-listing-container .row:first-child {
+  margin-top: 0;
+}
+.land-listing-container .info-table {
+  border: 1px solid #dcdcdc;
+  padding: 20px;
+}
+.land-listing-container .info-table .button {
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 50px;
+}
+.land-listing-container .table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid #dcdcdc;
+  border-left: 1px solid #dcdcdc;
+}
+.land-listing-container .cell {
+  border-right: 1px solid #dcdcdc;
+  border-bottom: 1px solid #dcdcdc;
+  padding: 15px 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+.land-listing-container .cell .icon {
+  display: flex;
+  align-items: center;
+}
+.land-listing-container .cell .icon i {
+  font-size: 14;
+}
+.land-listing-container .cell .icon ion-icon {
+  font-size: 28px;
+}
+.land-listing-container .cell .text {
+  margin-left: 12px;
+}
+.land-listing-container .cell .text h3 {
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #050d42;
+}
+.land-listing-container .cell .text p {
+  font-weight: 300;
+  margin: 0;
+  font-size: 14px;
+  color: #949393;
+}
+@media (max-width: 768px) {
+  .land-listing-container .listing-section {
+    flex-direction: column;
+  }
+  .land-listing-container .column {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px; /* Adjust margin as needed */
+  }
+}
+.land-listing-container .listing-page {
+  width: 59.8%;
+  margin-top: 20px;
+  padding: 38px 40px;
+  border: 1px solid #dcdcdc;
+}
+.land-listing-container .listing-page h2 {
+  color: #003b35;
+  font-weight: bold;
+  border-bottom: 1px solid #003b35;
+  display: inline-block;
+  padding-bottom: 10px;
+  margin-bottom: 0;
+}
+.land-listing-container .listing-page .content p {
+  font-size: 1.3em;
+  margin-top: 24px;
+  color: #050d42;
+}
+.land-listing-container .overview .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.land-listing-container .overview .content .col .row {
+  padding: 10px 24px;
+  min-height: 44px;
+  border-bottom: 1px solid #dcdcdc;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  font-size: 0.9em;
+  gap: 1em;
+  margin-top: 0;
+}
+.land-listing-container .overview .content .col .row .heading {
+  font-weight: normal;
+}
+.land-listing-container .overview .content .col .row .heading p {
+  margin: 0;
+}
+.land-listing-container .overview .content .col .row .detail {
+  font-weight: bold;
+}
+.land-listing-container .overview .content .col .row .detail p {
+  margin: 0;
+}
+.land-listing-container .overview .content .col-1 {
+  width: 58%;
+  margin-right: 36px;
+}
+.land-listing-container .overview .content .col-2 {
+  width: 40%;
+}
+.land-listing-container .service .content {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 40px;
+  gap: 2em;
+}
+.land-listing-container .service .content .service-card {
+  width: 110px;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.land-listing-container .service .content .service-card .image {
+  border: 1px solid #dcdcdc;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.land-listing-container .service .content .service-card .heading p {
+  font-weight: bold;
+  margin: 15px 0 0;
+  font-size: 0.9em;
+  line-height: 1.4em;
+}
+.land-listing-container .service .content .service-card .heading p span {
+  display: block;
+}
+
+.neighbourhood {
+  width: 94% !important;
+}
 
 footer {
   background-color: #003b35;
   padding: 4em 2em;
   min-height: 300px;
-}
-
-/* Your existing CSS remains unchanged */
-/* Additional CSS for mobile menu */
-.mobile-menu {
-  display: block;
-}
-@media (min-width: 768px) {
-  .mobile-menu {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .content.mobile-menu nav {
-    display: block;
-  }
-  .top-nav {
-    position: relative;
-  }
-  #menuToggle {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    z-index: 1;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-         user-select: none;
-  }
-  #menuToggle input {
-    display: flex;
-    width: 40px;
-    height: 32px;
-    position: absolute;
-    cursor: pointer;
-    opacity: 0;
-    z-index: 2;
-  }
-  #menuToggle span {
-    display: flex;
-    width: 29px;
-    height: 2px;
-    margin-bottom: 5px;
-    position: relative;
-    background: #17c0ab;
-    border-radius: 3px;
-    z-index: 1;
-    transform-origin: 5px 0px;
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
-  }
-  #menuToggle span:first-child {
-    transform-origin: 0% 0%;
-  }
-  #menuToggle span:nth-last-child(2) {
-    transform-origin: 0% 100%;
-  }
-  #menuToggle input:checked ~ span {
-    opacity: 1;
-    transform: rotate(45deg) translate(-3px, -1px);
-    background: #17c0ab;
-  }
-  #menuToggle input:checked ~ span:nth-last-child(3) {
-    opacity: 0;
-    transform: rotate(0deg) scale(0.2, 0.2);
-  }
-  #menuToggle input:checked ~ span:nth-last-child(2) {
-    transform: rotate(-45deg) translate(0, -1px);
-  }
-  #menuToggle input:checked ~ #menu {
-    transform: translate(0, 0); /* Slide in the menu from the right */
-  }
-  #menu {
-    position: fixed;
-    width: 150px;
-    padding: 125px 37px 0;
-    height: 100vh;
-    box-shadow: 0 0 10px #85888c;
-    margin: -38px 0px 0;
-    right: 0;
-    background-color: #f5f6fa;
-    -webkit-font-smoothing: antialiased;
-    transform-origin: 0% 0%;
-    transform: translate(100%, 0);
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-    background: linear-gradient(to bottom, #002623, #000101);
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-  }
-  #menu li {
-    padding: 10px 0;
-    transition-delay: 2s;
-  }
-  #menu ul {
-    margin-top: 20px;
-  }
-  #menu ul img {
-    transform: scaleX(-1);
-    margin-left: -6px;
-  }
-  #menu ul .button {
-    margin-top: 10px;
-    padding: 6px 20px;
-  }
-  #menuToggle input:checked ~ ul {
-    transform: none;
-  }
 }/*# sourceMappingURL=styles.css.map */
